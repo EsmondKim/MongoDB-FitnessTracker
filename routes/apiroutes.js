@@ -5,7 +5,7 @@ router.get("/api/workouts", (req, res) => {
   Exercises.find({})
     .sort({ date: -1 })
     .then((dbExercises) => {
-      //console.log(dbExercises);
+      console.log(dbExercises);
       res.json(dbExercises);
     })
     .catch((err) => {
