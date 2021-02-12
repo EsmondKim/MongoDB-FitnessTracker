@@ -56,17 +56,24 @@ router.post("/api/workouts/", ({ body }, res) => {
 // });
 
 router.put("/api/workouts/:id", (req, res) => {
-  //console.log(req.body);
-  Exercises.updateOne(
-    {
-      _id: req.params.id,
-    },
-    {
-      $set: { $push: { exercises: req.body } },
-    }
-  ).then((data) => {
-    res.json(data);
-  });
+  console.log(req.body);
+  const id = req.params.id;
+  const workout = req.body;
+
+  Exercises.findByIdAndUpdate(
+    id,
+    { $push: { exercises: workout } },
+    { new: true }
+  )
+
+    .then((data) => {
+      console.log(data);
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err);
+    });
 });
 
 module.exports = router;
