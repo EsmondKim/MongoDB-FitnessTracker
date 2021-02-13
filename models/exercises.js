@@ -41,10 +41,9 @@ const exercisesSchema = new Schema({
   ],
 });
 
-exercisesSchema.virtual("totalDuration").get(function() { exercises.forEach(function(exercise) { exercise.duration + }) return })
+// exercisesSchema.virtual("totalDuration").get(function() { exercises.forEach(function(exercise) { exercise.duration + }) return })
 //.reduce
 
 const exercises = mongoose.model("Exercises", exercisesSchema);
 
 module.exports = exercises;
- 
