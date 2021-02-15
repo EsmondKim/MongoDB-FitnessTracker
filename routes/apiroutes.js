@@ -5,7 +5,7 @@ router.get("/api/workouts", (req, res) => {
   Exercises.find({})
     .sort({ date: -1 })
     .then((dbExercises) => {
-      console.log(dbExercises);
+      //console.log(dbExercises);
       res.json(dbExercises);
     })
     .catch((err) => {
@@ -35,28 +35,8 @@ router.post("/api/workouts/", ({ body }, res) => {
     });
 });
 
-// router.post("/api/workouts/:params", (req, res) => {
-//   console.log(req);
-//   console.log(params);
-//   db.exercises.update(
-//     {
-//       _id: mongojs.ObjectId(req.params.id),
-//     },
-//     {
-//       $set: req.body,
-//     },
-//     (error, data) => {
-//       if (error) {
-//         res.send(error);
-//       } else {
-//         res.send(data);
-//       }
-//     }
-//   );
-// });
-
 router.put("/api/workouts/:id", (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   const id = req.params.id;
   const workout = req.body;
 
@@ -67,7 +47,7 @@ router.put("/api/workouts/:id", (req, res) => {
   )
 
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       res.json(data);
     })
     .catch((err) => {

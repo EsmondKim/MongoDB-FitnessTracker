@@ -40,14 +40,21 @@ const exercisesSchema = new Schema({
     },
   ],
 });
+console.log("We got to teh` duraction schema.");
+const exerciseDurations = exercisesSchema.duration;
+console.log("This is the exDur man!", exerciseDurations);
 
-exercisesSchema.virtual("totalDuration").get(function () {
-  const exerciseDurations = exercisesSchema.duration;
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  exerciseDurations.reduce(reducer);
-  console.log("This is the REDUCER!!!", reducer);
-  return reducer;
-});
+exercisesSchema
+  .virtual("totalDuration")
+  .get(function getDuration(accumulator, currentValue, index, array) {
+    if (index === array.length - 1) {
+      return accumulator + currentValue;
+    }
+    return accumulator + currentValue;
+  });
+
+let calculatedDuration = exerciseDurations.reduce(getDuration);
+console.log("This is the REDUCER!!!", calculatedDuration);
 
 const exercises = mongoose.model("Exercises", exercisesSchema);
 
