@@ -45,7 +45,7 @@ exercisesSchema.virtual("totalDuration").get(function () {
   const exerciseDurations = exercisesSchema.duration;
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   exerciseDurations.reduce(reducer);
-  console.log(reducer);
+  console.log("This is the REDUCER!!!", reducer);
   return reducer;
 });
 
