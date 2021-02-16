@@ -41,6 +41,25 @@ const exercisesSchema = new Schema({
   ],
 });
 
+//Start of virtuals code from exercises.js model.
+// exercisesSchema
+//   .virtual("totalDuration")
+//   .get(async function getDuration(accumulator, currentValue, index, array) {
+//     console.log("We got to teh` duraction schema.");
+//     const lastWorkout = await API.getLastWorkout();
+//     const exerciseDurations = lastWorkout.totalDuration;
+//     console.log("This is the exDur man!", exerciseDurations);
+
+//     if (index === array.length - 1) {
+//       return accumulator + currentValue;
+//     }
+//     return accumulator + currentValue;
+//   });
+
+// let calculatedDuration = exerciseDurations.reduce(getDuration);
+// console.log("This is the REDUCER!!!", calculatedDuration);
+//End of virtuals code from exercises.js model.
+
 const exercises = mongoose.model("Exercises", exercisesSchema);
 
 module.exports = exercises;

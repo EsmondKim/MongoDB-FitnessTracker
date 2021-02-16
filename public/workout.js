@@ -1,30 +1,10 @@
-//let exercises = require("exercises");
-
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
-  //console.log("Last workout:", lastWorkout);
+  console.log("Last workout:", lastWorkout);
   if (lastWorkout) {
     document
       .querySelector("a[href='/exercise?']")
       .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
-
-    //Start of virtuals code brought over from exercises.js model.
-    console.log("We got to teh` duraction schema.");
-    const exerciseDurations = Schema.duration;
-    console.log("This is the exDur man!", exerciseDurations);
-
-    exercisesSchema
-      .virtual("totalDuration")
-      .get(function getDuration(accumulator, currentValue, index, array) {
-        if (index === array.length - 1) {
-          return accumulator + currentValue;
-        }
-        return accumulator + currentValue;
-      });
-
-    let calculatedDuration = exerciseDurations.reduce(getDuration);
-    console.log("This is the REDUCER!!!", calculatedDuration);
-    //End of virtuals code brought over from exercises.js model.
 
     const workoutSummary = {
       date: formatDate(lastWorkout.day),

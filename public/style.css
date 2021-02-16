@@ -33,7 +33,7 @@ a:visited {
   color: inherit;
 }
 
-nav a:hover{
+nav a:hover {
   opacity: 0.7;
 }
 
@@ -438,4 +438,16 @@ form > button {
     opacity: 0;
     right: -320px;
   }
+}
+
+#exercisebody {
+  background-image: url("./images/gym.jpg");
+}
+
+#indexbody {
+  background-image: url("./images/bar.jpg");
+}
+
+#statsbody {
+  background-image: url("./images/jog.jpg");
 }
