@@ -5,6 +5,8 @@ router.get("/api/workouts", (req, res) => {
   Exercises.find({})
     .sort({ date: -1 })
     .then((dbExercises) => {
+      //let strDBExercises = JSON.stringify(dbExercises);
+      //console.log(strDBExercises);
       //console.log(dbExercises);
       res.json(dbExercises);
     })

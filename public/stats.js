@@ -193,7 +193,6 @@ function duration(data) {
       durations.push(exercise.duration);
     });
   });
-  console.log("Duration function from stats.js", durations);
   return durations;
 }
 
