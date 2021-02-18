@@ -3,11 +3,8 @@ const Exercises = require("../models/exercises.js");
 
 router.get("/api/workouts", (req, res) => {
   Exercises.find({})
-    .sort({ date: -1 })
+    //.sort({ date: -1 })
     .then((dbExercises) => {
-      //let strDBExercises = JSON.stringify(dbExercises);
-      //console.log(strDBExercises);
-      //console.log(dbExercises);
       res.json(dbExercises);
     })
     .catch((err) => {
@@ -27,7 +24,6 @@ router.get("/api/workouts/range", (req, res) => {
 });
 
 router.post("/api/workouts/", ({ body }, res) => {
-  //console.log(body);
   Exercises.create(body)
     .then((dbExercises) => {
       res.json(dbExercises);
@@ -38,7 +34,6 @@ router.post("/api/workouts/", ({ body }, res) => {
 });
 
 router.put("/api/workouts/:id", (req, res) => {
-  //console.log(req.body);
   const id = req.params.id;
   const workout = req.body;
 
@@ -49,7 +44,6 @@ router.put("/api/workouts/:id", (req, res) => {
   )
 
     .then((data) => {
-      //console.log(data);
       res.json(data);
     })
     .catch((err) => {
