@@ -3,8 +3,7 @@ const Exercises = require("../models/exercises.js");
 
 router.get("/api/workouts", (req, res) => {
   Exercises.find({})
-    //.sort({ date: -1 })
-    
+    .sort({ date: -1 })
     .then((dbExercises) => {
       res.json(dbExercises);
     })
