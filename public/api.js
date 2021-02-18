@@ -8,8 +8,7 @@ const API = {
     }
     const json = await res.json();
 
-    //return json[json.length - 1];
-    return console.log("Trying to get heroku to run past this function.");
+    return json[json.length - 1];
   },
   async addExercise(data) {
     const id = location.search.split("=")[1];
