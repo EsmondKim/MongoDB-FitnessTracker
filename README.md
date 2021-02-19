@@ -27,7 +27,7 @@ Sceenshots
 ![Here is a screenshot of the Workout Tracker App.](/public/images/screenshot2.jpg)
 ![Here is a screenshot of the Workout Tracker App.](/public/images/screenshot3.jpg)
 Deployed website:
-[Here is a link to the deployed website](https://thawing-falls-66276.herokuapp.com/)
+[Here is a link to the deployed website](https://workout-tracker-6001.herokuapp.com/)
 
 ## Installation
 
