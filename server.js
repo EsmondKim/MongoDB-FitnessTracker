@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
@@ -18,6 +20,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/exercises", {
   useCreateIndex: true,
   useFindAndModify: false,
 });
+
+console.log(process.env.MONGODB_URI);
 
 // routes
 app.use(require("./routes/apiroutes.js"));

@@ -1,8 +1,9 @@
 const router = require("./htmlroutes");
-const Exercises = require("../models/exercises.js");
+const exercises = require("../models/exercises.js");
 
 router.get("/api/workouts", (req, res) => {
-  Exercises.find({})
+  exercises
+    .find({})
     .sort({ date: -1 })
     .then((dbExercises) => {
       res.json(dbExercises);
@@ -13,7 +14,8 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.get("/api/workouts/range", (req, res) => {
-  Exercises.find({})
+  exercises
+    .find({})
     .sort({ date: -1 })
     .then((dbExercises) => {
       res.json(dbExercises);
@@ -24,7 +26,8 @@ router.get("/api/workouts/range", (req, res) => {
 });
 
 router.post("/api/workouts/", ({ body }, res) => {
-  Exercises.create(body)
+  exercises
+    .create(body)
     .then((dbExercises) => {
       res.json(dbExercises);
     })
@@ -37,11 +40,8 @@ router.put("/api/workouts/:id", (req, res) => {
   const id = req.params.id;
   const workout = req.body;
 
-  Exercises.findByIdAndUpdate(
-    id,
-    { $push: { exercises: workout } },
-    { new: true }
-  )
+  exercises
+    .findByIdAndUpdate(id, { $push: { exercises: workout } }, { new: true })
 
     .then((data) => {
       res.json(data);
